@@ -19,7 +19,8 @@ class KHSClass(Bot):
         super(KHSClass, self).__init__(
             command_prefix=self._command_prefix,
             description=self._description,
-            help_command=self._help_command
+            help_command=self._help_command,
+            case_insensitive=self.case_insensitive
         )
 
     def load_extensions(self, _cogs: typing.List[str]):
