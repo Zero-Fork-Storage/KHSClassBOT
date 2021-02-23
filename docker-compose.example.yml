@@ -1,0 +1,29 @@
+version: '3'
+
+volumes:
+  postgres_data: {}
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgres/data
+    environment:
+      - POSTGRES_DB=class_bot
+      - POSTGRES_USER=sampleuser
+      - POSTGRES_PASSWORD=samplesecret
+
+  bot:
+    build:
+      context: .
+      dockerfile: ./compose/class_bot/Dockerfile-dev
+    volumes:
+      - ./:/core_app/
+    command: ["python", "./run.py"]
+    environment:
+      - DB_HOST=db
+      - DISCORD_BOT_TOKEN=<DISCORD_BOT_TOKEN>
+      - DISCORD_BOT_VERSION=1.0
+    depends_on:
+      - db
+    restart: always
