@@ -1,6 +1,8 @@
+import typing
 import discord
 from itertools import cycle
 from discord.ext import tasks
+from app.services import KHSClass
 from app.controller import Controller
 
 
@@ -36,11 +38,22 @@ class DiscordClient:
 
 class MainSystem:
     def __init__(self):
+        self.source: typing.Optional[DiscordClient] = None
+        self.discord_client: typing.Optional[KHSClass] = None
+
         print("initializing main program")
 
     def run(self):
         self.main()
 
+    def obj(self):
+        self.source = DiscordClient()
+        self.discord_client = self.source.client.core
+
+    def inject_obj(self):
+        self.obj()
+
     def main(self):
-        objDiscordClient = DiscordClient()
-        objDiscordClient.run()
+        self.source.run()
+
+

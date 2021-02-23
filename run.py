@@ -1,8 +1,13 @@
 from app import MainSystem
 
+cogs_list = ["cogs.info", "cogs.SAT"]
+
 if __name__ == '__main__':
-    a = MainSystem()
-    a.run()
+    client = MainSystem()
+    client.inject_obj()
+
+    client.discord_client.load_extensions(cogs_list)
+    client.run()
 
 
 
