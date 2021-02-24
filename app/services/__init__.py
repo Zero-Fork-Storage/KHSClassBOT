@@ -14,13 +14,12 @@ class KHSClass(Bot):
         self._description: str = "2021 학년도 경희고등학교 3학년 3반 디스코드 서버 용 class bot"
 
         self._help_command = None
-        self._case_insensitive = True
+        self.case_insensitive = True
 
         super(KHSClass, self).__init__(
             command_prefix=self._command_prefix,
             description=self._description,
-            help_command=self._help_command,
-            case_insensitive=self.case_insensitive
+            help_command=self._help_command
         )
 
     def load_extensions(self, _cogs: typing.List[str]):
