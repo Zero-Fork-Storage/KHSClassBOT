@@ -1,5 +1,6 @@
 import os
 
-DB_HOST = os.environ.get("DB_HOST")
-DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
-DISCORD_BOT_VERSION = os.environ.get("DISCORD_BOT_VERSION")
+DB_HOST: str = os.environ.get("DB_HOST")
+NEIS_API_KEY: str = os.environ.get("NEIS_API_KEY")
+DISCORD_BOT_TOKEN: str = os.environ.get("DISCORD_BOT_TOKEN")
+DISCORD_BOT_VERSION: str = os.environ.get("DISCORD_BOT_VERSION")

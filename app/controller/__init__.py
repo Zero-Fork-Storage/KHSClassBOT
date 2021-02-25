@@ -1,5 +1,3 @@
-from discord.ext.commands import Context
-
 from typing import Optional
 from app.services import KHSClass
 from app.config import DISCORD_BOT_TOKEN
@@ -19,5 +17,7 @@ class Controller:
 
         self.core = KHSClass(
             discord_token=self.DISCORD_BOT_TOKEN,
-            bot_version=self.DISCORD_BOT_VERSION
+            bot_version=self.DISCORD_BOT_VERSION,
+            help_command=None,
+            case_insensitive=True
         )

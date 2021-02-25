@@ -2,6 +2,10 @@ class DISCORD_TOKEN_NOT_FOUND(Exception):
     pass
 
 
+class NEIS_API_KEY_NOT_FOUND(Exception):
+    pass
+
+
 class DISCORD_COG_LOAD_FAILED(Exception):
     def __init__(self, extension, msg):
         self.extension = extension

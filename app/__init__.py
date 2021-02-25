@@ -1,5 +1,6 @@
 import typing
 import discord
+
 from itertools import cycle
 from discord.ext import tasks
 from app.services import KHSClass

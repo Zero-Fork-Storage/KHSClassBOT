@@ -1,6 +1,6 @@
 from app import MainSystem
 
-cogs_list = ["cogs.info", "cogs.SAT"]
+cogs_list = ["cogs.info", "cogs.SAT", "cogs.school"]
 
 if __name__ == '__main__':
     client = MainSystem()
@@ -8,6 +8,4 @@ if __name__ == '__main__':
 
     client.discord_client.load_extensions(cogs_list)
     client.run()
-
-
 
