@@ -1,8 +1,10 @@
-import typing
+import discord
+from typing import List
+from typing import Optional
+from itertools import cycle
+from discord.ext import tasks
 from discord.ext.commands import Bot
 from discord.ext.commands import HelpCommand
-from app.error import DISCORD_COG_LOAD_FAILED
-from app.error import DISCORD_COG_RELOAD_FAILED
 
 
 class KHSClass(Bot):
@@ -10,11 +12,11 @@ class KHSClass(Bot):
             self,
             discord_token: str,
             bot_version: str,
-            command_prefix: typing.Optional[str] = None,
-            help_command: typing.Optional[HelpCommand] = None,
+            command_prefix: Optional[str] = None,
+            help_command: Optional[HelpCommand] = None,
             description: str = "2021 학년도 경희고등학교 3학년 3반 디스코드 서버 용 class bot",
             case_insensitive: bool = False
-    ):
+    ) -> None:
         """KHSClass Core \n
         Github: https://github.com/zeroday0619/KHSClassBOT
 
@@ -35,6 +37,8 @@ class KHSClass(Bot):
         self._help_command = help_command
         self._case_insensitive = case_insensitive
 
+        self.message: List[str] = ["!help", "@zeroday0619#4000"]
+
         super(KHSClass, self).__init__(
             command_prefix=self._command_prefix,
             help_command=self._help_command,
@@ -42,19 +46,12 @@ class KHSClass(Bot):
             case_insensitive=self._case_insensitive
         )
 
-    def load_extensions(self, _cogs: typing.List[str]):
-        for extension in _cogs:
-            try:
-                self.load_extension(extension)
-            except Exception as ex:
-                raise DISCORD_COG_LOAD_FAILED(extension=extension, msg=ex)
-
-    def reload_extensions(self, _cogs: typing.List[str]):
-        for extension in _cogs:
-            try:
-                self.reload_extension(extension)
-            except Exception as ex:
-                raise DISCORD_COG_RELOAD_FAILED(extension=extension, msg=ex)
+    @tasks.loop(seconds=10)
+    async def change_status(self):
+        await self.change_presence(
+            status=discord.Status.online,
+            activity=discord.Game(next(cycle(self.message)))
+        )
 
     def launch(self):
         self.run(self.discord_token)

@@ -13,7 +13,6 @@ class NEISClient:
 
     async def get_neis_code(self):
         sc_info = await self.neis.schoolInfo(SCHUL_NM="경희고등학교")
-        print(sc_info)
         AE: str = sc_info[0]["ATPT_OFCDC_SC_CODE"]
         SE: str = sc_info[0]["SD_SCHUL_CODE"]
 

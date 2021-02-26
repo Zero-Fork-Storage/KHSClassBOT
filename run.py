@@ -1,11 +1,8 @@
-from app import MainSystem
+from app import KHSClassBOT
 
 cogs_list = ["cogs.info", "cogs.SAT", "cogs.school"]
 
 if __name__ == '__main__':
-    client = MainSystem()
-    client.inject_obj()
-
-    client.discord_client.load_extensions(cogs_list)
+    client = KHSClassBOT()
+    client.load_extensions(cogs_list)
     client.run()
-
