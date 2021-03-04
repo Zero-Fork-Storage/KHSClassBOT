@@ -4,14 +4,12 @@ volumes:
   postgres_data: {}
 
 services:
-  db:
-    image: postgres
-    volumes:
-      - postgres_data:/var/lib/postgres/data
-    environment:
-      - POSTGRES_DB=class_bot
-      - POSTGRES_USER=sampleuser
-      - POSTGRES_PASSWORD=samplesecret
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    restart: always
+
 
   bot:
     build:
@@ -21,10 +19,10 @@ services:
       - ./:/core_app/
     command: ["python", "./run.py"]
     environment:
-      - DB_HOST=db
+      - REDIS_PORT=6379
       - NEIS_API_KEY=<API_KEY>
       - DISCORD_BOT_TOKEN=<DISCORD_BOT_TOKEN>
       - DISCORD_BOT_VERSION=1.0
     depends_on:
-      - db
+      - redis
     restart: always

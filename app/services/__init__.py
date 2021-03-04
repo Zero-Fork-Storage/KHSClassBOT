@@ -55,3 +55,7 @@ class KHSClass(Bot):
 
     def launch(self):
         self.run(self.discord_token)
+
+
+
+
