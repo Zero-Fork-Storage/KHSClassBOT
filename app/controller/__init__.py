@@ -6,6 +6,7 @@ from app.config import DISCORD_BOT_VERSION
 from app.error import DISCORD_TOKEN_NOT_FOUND
 from app.error import DISCORD_COG_LOAD_FAILED
 from app.error import DISCORD_COG_RELOAD_FAILED
+from discord_slash import SlashCommand
 
 
 class Controller:
@@ -14,6 +15,7 @@ class Controller:
         self.DISCORD_BOT_TOKEN = DISCORD_BOT_TOKEN
         self.DISCORD_BOT_VERSION = DISCORD_BOT_VERSION
         self.controller: Optional[KHSClass] = None
+        self.slash: Optional[SlashCommand] = None
 
     async def on_ready(self):
         print("------------------------------------------------------------")
@@ -47,4 +49,10 @@ class Controller:
             bot_version=self.DISCORD_BOT_VERSION,
             help_command=None,
             case_insensitive=True
+        )
+        self.slash = SlashCommand(
+            client=self.controller,
+            override_type=True,
+            sync_commands=True,
+            sync_on_cog_reload=True
         )

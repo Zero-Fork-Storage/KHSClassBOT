@@ -2,7 +2,9 @@ from app import KHSClassBOT
 
 cogs_list = ["cogs.info", "cogs.SAT", "cogs.school"]
 
+client = KHSClassBOT()
+
 if __name__ == '__main__':
-    client = KHSClassBOT()
     client.load_extensions(cogs_list)
+    client.slash.sync_all_commands()
     client.run()

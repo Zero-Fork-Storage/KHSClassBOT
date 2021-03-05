@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import Context
+from discord_slash import cog_ext, SlashContext
 
 
 class INFO(commands.Cog):
@@ -8,7 +9,7 @@ class INFO(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="help", aliases=["명령어", "도움"])
+    @commands.command(name="help")
     async def help(self, ctx: Context):
         embed = discord.Embed(
             title="KHSClassBOT 도움말",
@@ -16,35 +17,35 @@ class INFO(commands.Cog):
             color=0x94f5d9
         )
         embed.add_field(
-            name="!about",
+            name="/about",
             value="Introduce of KHSClassBOT",
             inline=False
         )
         embed.add_field(
-            name="!수능",
+            name="/수능",
             value="2022학년도 대학수학능력시험 d-day counter",
             inline=False
         )
         embed.add_field(
-            name="!조식",
+            name="/조식",
             value="오늘 조식 메뉴",
             inline=True
         )
         embed.add_field(
-            name="!중식",
+            name="/중식",
             value="오늘 중식 메뉴",
             inline=True
         )
         embed.add_field(
-            name="!석식",
+            name="/석식",
             value="오늘 석식 메뉴",
             inline=True
         )
         embed.set_footer(text="hosted by Microsoft Azure")
         await ctx.send(embed=embed)
 
-    @commands.command(name="about")
-    async def about(self, ctx: Context):
+    @cog_ext.cog_slash(name="about")
+    async def about(self, ctx: SlashContext):
         """!about"""
         embed = discord.Embed(
             color=0x60f6c4
