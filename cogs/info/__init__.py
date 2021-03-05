@@ -12,13 +12,13 @@ class INFO(commands.Cog):
     @commands.command(name="help")
     async def help(self, ctx: Context):
         embed = discord.Embed(
-            title="KHSClassBOT 도움말",
+            title="Pachirisu 도움말",
             url="https://github.com/zeroday0619/KHSClassBOT",
             color=0x94f5d9
         )
         embed.add_field(
             name="/about",
-            value="Introduce of KHSClassBOT",
+            value="Introduce of Pachirisu",
             inline=False
         )
         embed.add_field(
@@ -51,7 +51,7 @@ class INFO(commands.Cog):
             color=0x60f6c4
         )
         embed.set_author(
-            name="KHSClassBOT",
+            name="Pachirisu",
             url="https://github.com/zeroday0619/KHSClassBOT"
         )
         embed.add_field(
