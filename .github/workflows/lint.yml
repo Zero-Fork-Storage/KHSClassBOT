@@ -26,11 +26,17 @@ jobs:
           pip install flake8
           pip install isort
       - name: Linting using Flake8
+        id: Flake8
+        continue-on-error: true
         run: |
           ./scripts/flake8.sh
       - name: Linting using Black
+        id: Black
+        continue-on-error: true
         run: |
           ./scripts/black.sh
       - name: Linting using isort
+        id: isort
+        continue-on-error: true
         run: |
           ./scripts/isort.sh
