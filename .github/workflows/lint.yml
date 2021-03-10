@@ -27,10 +27,10 @@ jobs:
           pip install isort
       - name: Linting using Flake8
         run: |
-          ./.github/scripts/flake8.sh
+          .github/scripts/flake8.sh
       - name: Linting using Black
         run: |
-          ./.github/scripts/black.sh
+          .github/scripts/black.sh
       - name: Linting using isort
         run: |
-          ./.github/scripts/isort.sh
+          .github/scripts/isort.sh
