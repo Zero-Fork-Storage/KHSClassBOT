@@ -6,5 +6,4 @@ client = KHSClassBOT()
 
 if __name__ == '__main__':
     client.load_extensions(cogs_list)
-    client.slash.sync_all_commands()
     client.run()

@@ -50,9 +50,4 @@ class Controller:
             help_command=None,
             case_insensitive=True
         )
-        self.slash = SlashCommand(
-            client=self.controller,
-            override_type=True,
-            sync_commands=True,
-            sync_on_cog_reload=True
-        )
+
