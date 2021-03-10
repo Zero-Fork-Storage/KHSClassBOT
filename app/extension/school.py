@@ -41,6 +41,6 @@ class NEISClient:
             _da = da.append
             for meal in _meal:
                 _da({meal.MMEAL_SC_NM: meal.DDISH_NM.replace("<br/>", "\n")})
-            await self.rc.cache.set(key="cafeteria", value=da, ttl=10800)
+            await self.rc.cache.set(key="cafeteria", value=da, ttl=1800)
             return da
 
