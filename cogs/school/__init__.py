@@ -1,8 +1,9 @@
 import discord
-from app.extension import NEISClient
 from discord.ext import commands
 from discord.ext.commands import Context
-from discord_slash import cog_ext, SlashContext
+from discord_slash import SlashContext, cog_ext
+
+from app.extension import NEISClient
 
 
 class School(commands.Cog):

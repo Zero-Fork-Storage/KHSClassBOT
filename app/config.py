@@ -1,5 +1,5 @@
-import typing
 import os
+import typing
 
 REDIS_PORT: typing.Optional[int] = os.environ.get("REDIS_PORT")
 NEIS_API_KEY: typing.Optional[str] = os.environ.get("NEIS_API_KEY")

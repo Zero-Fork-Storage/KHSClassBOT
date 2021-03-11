@@ -1,7 +1,6 @@
 import aiocache
-
-from aiocache.factory import CacheHandler
 from aiocache.backends.redis import RedisCache
+from aiocache.factory import CacheHandler
 
 
 class REDIS_CLIENT:

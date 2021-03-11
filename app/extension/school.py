@@ -1,17 +1,15 @@
-import typing
-import neispy
-import aiocache
 import datetime
+import typing
+from collections import defaultdict, namedtuple
+from typing import Dict, List, Optional, Type
+
+import aiocache
+import neispy
 from aiocache.base import SENTINEL
-from collections import namedtuple, defaultdict
-from typing import Optional
-from typing import List
-from typing import Dict
-from typing import Type
-from app.extension.redis import REDIS_CLIENT
-from app.config import NEIS_API_KEY
-from app.config import REDIS_PORT
+
+from app.config import NEIS_API_KEY, REDIS_PORT
 from app.error import NEIS_API_KEY_NOT_FOUND
+from app.extension.redis import REDIS_CLIENT
 
 
 class NEISClient:

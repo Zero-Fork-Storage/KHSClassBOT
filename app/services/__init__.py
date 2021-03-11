@@ -1,10 +1,9 @@
-import discord
-from typing import List
-from typing import Optional
 from itertools import cycle
+from typing import List, Optional
+
+import discord
 from discord.ext import tasks
-from discord.ext.commands import Bot
-from discord.ext.commands import HelpCommand
+from discord.ext.commands import Bot, HelpCommand
 from discord_slash import SlashCommand
 
 

@@ -1,12 +1,11 @@
-from typing import List
-from typing import Optional
-from app.services import KHSClass
-from app.config import DISCORD_BOT_TOKEN
-from app.config import DISCORD_BOT_VERSION
-from app.error import DISCORD_TOKEN_NOT_FOUND
-from app.error import DISCORD_COG_LOAD_FAILED
-from app.error import DISCORD_COG_RELOAD_FAILED
+from typing import List, Optional
+
 from discord_slash import SlashCommand
+
+from app.config import DISCORD_BOT_TOKEN, DISCORD_BOT_VERSION
+from app.error import (DISCORD_COG_LOAD_FAILED, DISCORD_COG_RELOAD_FAILED,
+                       DISCORD_TOKEN_NOT_FOUND)
+from app.services import KHSClass
 
 
 class Controller:

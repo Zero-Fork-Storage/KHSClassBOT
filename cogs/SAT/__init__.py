@@ -1,7 +1,8 @@
-import discord
 import datetime
+
+import discord
 from discord.ext import commands
-from discord_slash import cog_ext, SlashContext
+from discord_slash import SlashContext, cog_ext
 
 
 class SAT(commands.Cog):

@@ -1,5 +1,5 @@
-from app.services import KHSClass
 from app.controller import Controller
+from app.services import KHSClass
 
 
 class DiscordClient(Controller):

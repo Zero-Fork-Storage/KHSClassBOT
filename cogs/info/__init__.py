@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import Context
-from discord_slash import cog_ext, SlashContext
+from discord_slash import SlashContext, cog_ext
 
 
 class INFO(commands.Cog):
