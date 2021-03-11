@@ -11,7 +11,8 @@ class SAT(commands.Cog):
     @cog_ext.cog_slash(name="수능")
     async def d_day_counter(self, ctx: SlashContext):
         """수능 d-day 카운터"""
-        today = datetime.date.today()
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        today = datetime.datetime.now(tz=KST).date()
         SAT_DAY = datetime.date(2021, 11, 17)
         d_day = SAT_DAY - today
         embed = discord.Embed(

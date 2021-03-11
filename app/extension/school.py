@@ -29,18 +29,19 @@ class NEISClient:
         return code
 
     async def cafeteria(self) -> typing.List[typing.Dict[str, str]]:
-        ca = await self.rc.cache.get(key="cafeteria")
-        if ca is not None:
-            return ca
-        else:
-            CODE = await self.get_neis_code()
-            now = datetime.datetime.now()
-            YMD = now.strftime("%Y%m%d")
-            _meal = await self.neis.mealServiceDietInfo(CODE[0], CODE[1], MLSV_YMD=YMD)
-            da = []
-            _da = da.append
-            for meal in _meal:
-                _da({meal.MMEAL_SC_NM: meal.DDISH_NM.replace("<br/>", "\n")})
-            await self.rc.cache.set(key="cafeteria", value=da, ttl=1800)
-            return da
+        # ca = await self.rc.cache.get(key="cafeteria")
+        # if ca is not None:
+        #     return ca
+        # else:
+        CODE = await self.get_neis_code()
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        YMD = now.strftime("%Y%m%d")
+        _meal = await self.neis.mealServiceDietInfo(CODE[0], CODE[1], MLSV_YMD=YMD)
+        da = []
+        _da = da.append
+        for meal in _meal:
+            _da({meal.MMEAL_SC_NM: meal.DDISH_NM.replace("<br/>", "\n")})
+        # await self.rc.cache.set(key="cafeteria", value=da, ttl=1800)
+        return da
 
