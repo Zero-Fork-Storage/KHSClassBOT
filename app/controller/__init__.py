@@ -22,7 +22,7 @@ class Controller:
         print(f"[*] CID: {str(self.controller.user.id)}")
         print(f"[*] zeroday0619 | Copyright (C) 2021 zeroday0619")
         print("------------------------------------------------------------")
-        print(f'[*] Completed!')
+        print(f"[*] Completed!")
         await self.controller.change_status.start()
 
     def load_extensions(self, _cogs: List[str]):
@@ -47,6 +47,5 @@ class Controller:
             discord_token=self.DISCORD_BOT_TOKEN,
             bot_version=self.DISCORD_BOT_VERSION,
             help_command=None,
-            case_insensitive=True
+            case_insensitive=True,
         )
-

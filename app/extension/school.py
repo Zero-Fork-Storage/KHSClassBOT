@@ -1,15 +1,18 @@
 import datetime
 import typing
-from collections import defaultdict, namedtuple
-from typing import Dict, List, Optional, Type
 
-import aiocache
+# import aiocache
 import neispy
-from aiocache.base import SENTINEL
 
 from app.config import NEIS_API_KEY, REDIS_PORT
 from app.error import NEIS_API_KEY_NOT_FOUND
 from app.extension.redis import REDIS_CLIENT
+
+# from collections import defaultdict, namedtuple
+# from typing import Dict, List, Optional, Type
+
+
+# from aiocache.base import SENTINEL
 
 
 class NEISClient:
@@ -42,4 +45,3 @@ class NEISClient:
             _da({meal.MMEAL_SC_NM: meal.DDISH_NM.replace("<br/>", "\n")})
         # await self.rc.cache.set(key="cafeteria", value=da, ttl=1800)
         return da
-

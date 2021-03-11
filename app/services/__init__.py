@@ -8,12 +8,19 @@ from discord_slash import SlashCommand
 
 
 class KHSClass(Bot):
-    def __init__(self, discord_token: str, bot_version: str, command_prefix: Optional[str] = None,
-                 help_command: Optional[HelpCommand] = None,
-                 description: str = "2021 학년도 경희고등학교 3학년 3반 디스코드 서버 용 class bot",
-                 case_insensitive: bool = False, sync_commands: bool = False,
-                 delete_from_unused_guilds: bool = False, sync_on_cog_reload: bool = False,
-                 override_type: bool = False) -> None:
+    def __init__(
+        self,
+        discord_token: str,
+        bot_version: str,
+        command_prefix: Optional[str] = None,
+        help_command: Optional[HelpCommand] = None,
+        description: str = "2021 학년도 경희고등학교 3학년 3반 디스코드 서버 용 class bot",
+        case_insensitive: bool = False,
+        sync_commands: bool = False,
+        delete_from_unused_guilds: bool = False,
+        sync_on_cog_reload: bool = False,
+        override_type: bool = False,
+    ) -> None:
         """KHSClass Core \n
         Github: https://github.com/zeroday0619/KHSClassBOT
 
@@ -47,24 +54,22 @@ class KHSClass(Bot):
             command_prefix=self._command_prefix,
             help_command=self._help_command,
             description=self._description,
-            case_insensitive=self._case_insensitive
+            case_insensitive=self._case_insensitive,
         )
         SlashCommand(
             client=self,
             sync_commands=self._sync_commands,
             delete_from_unused_guilds=self._delete_from_unused_guilds,
             sync_on_cog_reload=self._sync_on_cog_reload,
-            override_type=self._override_type
+            override_type=self._override_type,
         )
 
     @tasks.loop(seconds=10)
     async def change_status(self):
         await self.change_presence(
             status=discord.Status.online,
-            activity=discord.Game(next(cycle(self.message)))
+            activity=discord.Game(next(cycle(self.message))),
         )
 
     def launch(self):
         self.run(self.discord_token)
-
-

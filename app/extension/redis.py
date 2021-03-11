@@ -15,25 +15,19 @@ class REDIS_CLIENT:
         self._caches: CacheHandler = aiocache.caches
         self._caches.set_config(
             {
-                'default': {
-                    'cache': "aiocache.RedisCache",
-                    'endpoint': self.host,
-                    'port': self.port,
-                    'timeout': 1,
-                    'serializer': {
-                        'class': "aiocache.serializers.PickleSerializer"
-                    },
-                    'plugins': [
-                        {'class': "aiocache.plugins.HitMissRatioPlugin"},
-                        {'class': "aiocache.plugins.TimingPlugin"}
-                    ]
+                "default": {
+                    "cache": "aiocache.RedisCache",
+                    "endpoint": self.host,
+                    "port": self.port,
+                    "timeout": 1,
+                    "serializer": {"class": "aiocache.serializers.PickleSerializer"},
+                    "plugins": [
+                        {"class": "aiocache.plugins.HitMissRatioPlugin"},
+                        {"class": "aiocache.plugins.TimingPlugin"},
+                    ],
                 }
             }
         )
-        self.cache: RedisCache = self._caches.create(**self._caches.get_alias_config("default"))
-
-
-
-
-
-
+        self.cache: RedisCache = self._caches.create(
+            **self._caches.get_alias_config("default")
+        )

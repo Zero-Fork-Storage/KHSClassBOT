@@ -22,36 +22,24 @@ class School(commands.Cog):
     async def get_meal_a(self, ctx: SlashContext):
         """오늘 조식 메뉴"""
         meal = await self.meal_filter("조식")
-        embed = discord.Embed(title="오늘의 급식", color=0x0129ef)
-        embed.add_field(
-            name="menu",
-            value=f"""```{meal}```""",
-            inline=False
-        )
+        embed = discord.Embed(title="오늘의 급식", color=0x0129EF)
+        embed.add_field(name="menu", value=f"""```{meal}```""", inline=False)
         await ctx.send(embed=embed)
 
     @cog_ext.cog_slash(name="중식")
     async def get_meal_b(self, ctx: SlashContext):
         """오늘 중식 메뉴"""
         meal = await self.meal_filter("중식")
-        embed = discord.Embed(title="오늘의 급식", color=0x0129ef)
-        embed.add_field(
-            name="menu",
-            value=f"""```{meal}```""",
-            inline=False
-        )
+        embed = discord.Embed(title="오늘의 급식", color=0x0129EF)
+        embed.add_field(name="menu", value=f"""```{meal}```""", inline=False)
         await ctx.send(embed=embed)
 
     @cog_ext.cog_slash(name="석식")
     async def get_meal_c(self, ctx: SlashContext):
         """오늘 석식 메뉴"""
         meal = await self.meal_filter("석식")
-        embed = discord.Embed(title="오늘의 급식", color=0x0129ef)
-        embed.add_field(
-            name="menu",
-            value=f"""```{meal}```""",
-            inline=False
-        )
+        embed = discord.Embed(title="오늘의 급식", color=0x0129EF)
+        embed.add_field(name="menu", value=f"""```{meal}```""", inline=False)
         await ctx.send(embed=embed)
 
 
