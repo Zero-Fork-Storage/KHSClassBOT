@@ -3,4 +3,4 @@
 set -e
 set -x
 
-black run.py app cogs --check
+black run.py app cogs --check --exclude=app/controller/__init__.py

@@ -10,7 +10,6 @@ from app.services import KHSClass
 
 class Controller:
     def __init__(self) -> None:
-
         self.DISCORD_BOT_TOKEN = DISCORD_BOT_TOKEN
         self.DISCORD_BOT_VERSION = DISCORD_BOT_VERSION
         self.controller: Optional[KHSClass] = None
