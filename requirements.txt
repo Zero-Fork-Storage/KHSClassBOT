@@ -1,4 +1,4 @@
-discord.py==1.6.0
+discord.py==1.7.1
 neispy==3.2.2
 aiocache[redis]==0.11.1
 ujson==4.0.2
