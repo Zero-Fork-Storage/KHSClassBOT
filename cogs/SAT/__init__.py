@@ -14,7 +14,7 @@ class SAT(commands.Cog):
         """수능 d-day 카운터"""
         KST = datetime.timezone(datetime.timedelta(hours=9))
         today = datetime.datetime.now(tz=KST).date()
-        SAT_DAY = datetime.date(2021, 11, 17)
+        SAT_DAY = datetime.date(2021, 11, 18)
         d_day = SAT_DAY - today
         embed = discord.Embed(
             title="수능 d-day 카운터",
