@@ -3,4 +3,4 @@ neispy==3.2.2
 aiocache[redis]==0.11.1
 ujson==4.0.2
 msgpack==1.0.2
-discord-py-slash-command==2.3.2
+discord-py-slash-command==3.0.1
